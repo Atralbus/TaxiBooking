@@ -4,7 +4,7 @@ use Mix.Config
 # you can enable the server option below.
 config :exam1, Exam1.Endpoint,
   http: [port: 4001],
-  server: false
+  server: true
 
 # Print only warnings and errors during test
 config :logger, level: :warn
@@ -17,3 +17,6 @@ config :exam1, Exam1.Repo,
   database: "exam1_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :hound, driver: "chrome_driver"
+config :exam1, sql_sandbox: true

@@ -42,7 +42,8 @@ defmodule Exam1.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:white_bread, "~> 4.1", only: [:test]}
+      {:white_bread, "~> 4.1", only: [:test]},
+      {:hound, "~> 1.0"}
     ]
   end
 
