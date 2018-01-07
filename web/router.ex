@@ -46,7 +46,9 @@ defmodule Exam1.Router do
   end  
 
   # Other scopes may use custom stacks.
-  # scope "/api", Exam1 do
-  #   pipe_through :api
-  # end
+  scope "/api", Exam1 do
+    pipe_through :api
+
+    post "/bookings", BookingAPIController, :create
+  end
 end

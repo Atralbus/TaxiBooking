@@ -62,8 +62,9 @@ exports.config = {
       "js/app.js": ["web/static/js/app"]
     }
   },
-
+  
   npm: {
-    enabled: true
+    enabled: true,
+    aliases: { vue: "vue/dist/vue.common.js" }
   }
 };
