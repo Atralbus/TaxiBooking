@@ -20,3 +20,4 @@ config :exam1, Exam1.Repo,
 
 config :hound, driver: "chrome_driver"
 config :exam1, sql_sandbox: true
+config :pbkdf2_elixir, rounds: 1

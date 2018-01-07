@@ -16,7 +16,7 @@ defmodule Exam1.UserController do
     changeset = User.changeset(%User{}, user_params)
 
     case Repo.insert(changeset) do
-      {:ok, user} ->
+      {:ok, _user} ->
         conn
         |> put_flash(:info, "User created successfully.")
         |> redirect(to: user_path(conn, :index))
