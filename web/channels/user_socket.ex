@@ -3,7 +3,9 @@ defmodule Exam1.UserSocket do
 
   ## Channels
   # channel "room:*", Exam1.RoomChannel
-
+  channel "driver:lobby", Exam1.DriverChannel
+  channel "customer:lobby", Exam1.CustomerChannel
+  
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
   # transport :longpoll, Phoenix.Transports.LongPoll

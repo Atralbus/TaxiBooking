@@ -3,11 +3,14 @@ defmodule Exam1.BookingAPIController do
   import Ecto.Query, only: [from: 2]
   alias Exam1.{Taxi,Repo}
 
-  def create(conn, _params) do
+  def create(conn, params) do
     query = from t in Taxi, where: t.status == "available", select: t
     available_taxis = Repo.all(query)
     if length(available_taxis) > 0 do
       taxi = List.first(available_taxis)
+
+      Exam1.Endpoint.broadcast("driver:lobby", "requests", params |> Map.put(:booking_id, 1))
+
       conn
       |> put_status(201)
       |> json(%{msg: "We are processing your request"})
