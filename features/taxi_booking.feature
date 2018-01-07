@@ -17,7 +17,7 @@ Feature: Taxi booking
   Scenario: Booking via STRS' web page (with rejection)
         Given the following taxis are on duty
             | username	| location	| status	|
-            | juhan85	| Kaubamaja	| busy		|
+            | juhan85	  | Kaubamaja	| busy		|
             | peeter88	| Kaubamaja | busy  	|
         And I want to go from "Liivi 2" to "Lõunakeskus"
 	    And I open STRS' web page

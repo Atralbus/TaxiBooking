@@ -1,7 +1,17 @@
 defmodule Exam1.BookingControllerTest do
   use Exam1.ConnCase
 
-  test "POST /bookings", %{conn: conn} do
+  alias Exam1.{Repo,Taxi}
+
+  test "Booking rejection", %{conn: conn} do
+    Repo.insert!(%Taxi{status: "busy"})
+    conn = post conn, "/bookings", %{booking: [pickup_address: "Liivi 2", dropoff_address: "Lõunakeskus"]}
+    conn = get conn, redirected_to(conn)
+    assert html_response(conn, 200) =~ ~r/At present, there is no taxi available!/
+  end
+
+  test "Booking aceptance", %{conn: conn} do
+    Repo.insert!(%Taxi{status: "available"})
     conn = post conn, "/bookings", %{booking: [pickup_address: "Liivi 2", dropoff_address: "Lõunakeskus"]}
     conn = get conn, redirected_to(conn)
     assert html_response(conn, 200) =~ ~r/Your taxi will arrive in \d+ minutes/
