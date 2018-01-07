@@ -7,6 +7,7 @@ defmodule Exam1.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Exam1.Authentication, repo: Exam1.Repo
   end
 
   pipeline :api do
@@ -19,6 +20,7 @@ defmodule Exam1.Router do
     get "/", PageController, :index
     resources "/users", UserController
     resources "/bookings", BookingController
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.
