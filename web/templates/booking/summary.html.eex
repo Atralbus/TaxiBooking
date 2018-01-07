@@ -3,13 +3,13 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Pickup address</th>
-      <th>Drop off address</th>
+      <th>Pickoff Address</th>
+      <th>Dropoff Address</th>
       <th>Status</th>
     </tr>
   </thead>
   <tbody>
-<%= for booking <- @bookings do %>
+<%= for booking <- @tuples do %>
     <tr>
       <td><%= booking.pickup_address %></td>
       <td><%= booking.dropoff_address %></td>
