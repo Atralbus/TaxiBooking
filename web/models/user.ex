@@ -1,11 +1,12 @@
 defmodule Exam1.User do
   use Exam1.Web, :model
+  alias Exam1.Booking
 
   schema "users" do
     field :name, :string
     field :username, :string
     field :password, :string
-
+    has_many :bookings, Booking
     timestamps()
   end
 
